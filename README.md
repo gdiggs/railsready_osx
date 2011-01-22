@@ -1,15 +1,19 @@
 #Rails Ready OS X
 ##Get a full Ruby on Rails stack up in one line :)
 ###Based off of [joshfng's](https://github.com/joshfng) awesome [railsready](https://github.com/joshfng/railsready)
+###If you don't know the commands to do this all manually, make sure to take a look and the time to read the script, learning is always important!
 
 ##XCode must be installed before you run this script!
 
 ##To Run:
-  * curl https://github.com/GordonDiggs/railsready_osx/raw/master/railsready_osx.sh >> railsready_osx.sh && chmod a+x railsready_osx.sh && ./railsready_osx.sh
+  * `curl https://github.com/GordonDiggs/railsready_osx/raw/master/railsready_osx.sh >> railsready_osx.sh && chmod a+x railsready_osx.sh && ./railsready_osx.sh`
   * To watch all the fun happenings, run `tail -f ~/railsready/install.log`
 
 ##What this installs:
   * homebrew
+  * wget
+  * readline
+  * most
   * git
   * rvm
   * ruby 1.9.2
