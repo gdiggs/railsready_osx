@@ -6,13 +6,14 @@
 #
 
 echo "Creating install dir..."
-cd && mkdir -p $HOME/railsready/src && cd $HOME/railsready && touch install.log
+cd && mkdir -p $HOME/railsready && cd $HOME/railsready
 
 # Install homebrew
 echo "Installing Homebrew..."
 ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
 
 # Reload terminal so that we can use the brew command
+touch $HOME/.bash_profile
 source $HOME/.bash_profile
 
 # Define which packages we're going to install
@@ -28,7 +29,7 @@ done
 # Install RVM
 echo "Installing RVM..."
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
-echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.' >> ~/.bash_profile
+echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.' >> $HOME/.bash_profile
 source $HOME/.rvm/scripts/rvm
 
 # Install Ruby
@@ -37,7 +38,7 @@ rvm install 1.9.2
 rvm --default use 1.9.2
 
 # Reload the terminal so we can use gem
-source ~/.bash_profile
+source $HOME/.bash_profile
 
 # Install some gems
 echo "Installing gems..."
