@@ -10,7 +10,7 @@ cd && mkdir -p $HOME/railsready/src && cd $HOME/railsready && touch install.log
 
 # Install homebrew
 echo "Installing Homebrew..."
-ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)" >> install.log
+ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
 
 # Reload terminal so that we can use the brew command
 source $HOME/.bash_profile
@@ -22,25 +22,25 @@ packages=("wget" "git" "postgresql" "imagemagick" "readline" "most")
 for package in "${packages[@]}"
 do
 	echo "Installing $package..."
-  brew install $package >> install.log
+  brew install $package
 done
 
 # Install RVM
 echo "Installing RVM..."
-bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head ) >> install.log
+bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.' >> ~/.bash_profile
 source $HOME/.rvm/scripts/rvm
 
 # Install Ruby
 echo "Installing Ruby 1.9.2..."
-rvm install 1.9.2 >> install.log
-rvm --default use 1.9.2 >> install.log
+rvm install 1.9.2
+rvm --default use 1.9.2
 
 # Reload the terminal so we can use gem
 source ~/.bash_profile
 
 # Install some gems
 echo "Installing gems..."
-gem install rails bundler passenger >> install.log
+gem install rails bundler passenger
 
 echo "Done! Enjoy!"

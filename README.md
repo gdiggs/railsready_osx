@@ -7,7 +7,6 @@
 
 ##To Run:
   * `curl https://github.com/GordonDiggs/railsready_osx/raw/master/railsready_osx.sh >> railsready_osx.sh && chmod a+x railsready_osx.sh && ./railsready_osx.sh`
-  * To watch all the fun happenings, run `tail -f ~/railsready/install.log`
 
 ##What this installs:
   * homebrew
