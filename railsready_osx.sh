@@ -5,11 +5,21 @@
 # Released under the MIT License
 #
 
-echo "Creating install dir..."
+msg_prefix="*****"
+
+gtfo_now() {
+  echo "$msg_prefix Exiting now..."
+  exit 1
+}
+ 
+# capture exit signal
+trap gtfo_now SIGINT
+
+echo "$msg_prefix Creating install dir..."
 cd && mkdir -p $HOME/railsready && cd $HOME/railsready
 
 # Install homebrew
-echo "Installing Homebrew..."
+echo "$msg_prefix Installing Homebrew..."
 ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
 
 # Reload terminal so that we can use the brew command
@@ -22,18 +32,18 @@ packages=("wget" "git" "postgresql" "imagemagick" "readline" "most")
 # Install the packages defined above
 for package in "${packages[@]}"
 do
-	echo "Installing $package..."
+	echo "$msg_prefix Installing $package..."
   brew install $package
 done
 
 # Install RVM
-echo "Installing RVM..."
+echo "$msg_prefix Installing RVM..."
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.' >> $HOME/.bash_profile
 source $HOME/.rvm/scripts/rvm
 
 # Install Ruby
-echo "Installing Ruby 1.9.2..."
+echo "$msg_prefix Installing Ruby 1.9.2..."
 rvm install 1.9.2
 rvm --default use 1.9.2
 
@@ -41,7 +51,7 @@ rvm --default use 1.9.2
 source $HOME/.bash_profile
 
 # Install some gems
-echo "Installing gems..."
+echo "$msg_prefix Installing gems..."
 gem install rails bundler passenger
 
-echo "Done! Enjoy!"
+echo "$msg_prefix Done! Enjoy!"
