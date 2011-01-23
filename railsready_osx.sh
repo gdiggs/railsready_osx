@@ -36,6 +36,11 @@ do
   brew install $package
 done
 
+# Install git bash completion
+echo "$msg_prefix Install Git Bash Completion..."
+curl https://github.com/git/git/raw/master/contrib/completion/git-completion.bash >> ~/.git-completion.bash
+echo "source ~/.git-completion.bash" >> $HOME/.bash_profile
+ 
 # Install RVM
 echo "$msg_prefix Installing RVM..."
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
