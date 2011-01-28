@@ -36,11 +36,21 @@ do
   brew install $package
 done
 
+# reload bash to have new commands
+source $HOME/.bash_profile
+
 # Install git bash completion
 echo "$msg_prefix Installing Git Bash Completion..."
 curl https://github.com/git/git/raw/master/contrib/completion/git-completion.bash >> ~/.git-completion.bash
 echo "source ~/.git-completion.bash" >> $HOME/.bash_profile
- 
+
+# Configure postgres
+echo "$msg_prefix Configuring Postgresql..."
+initdb /usr/local/var/postgres
+postgres_version=`psql --version | grep -o [0-9].[0-9].[0-9]`
+cp /usr/local/Cellar/postgresql/$postgres_version/org.postgresql.postgres.plist ~/Library/LaunchAgents
+launchctl load -w ~/Library/LaunchAgents/org.postgresql.postgres.plist
+
 # Install RVM
 echo "$msg_prefix Installing RVM..."
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
