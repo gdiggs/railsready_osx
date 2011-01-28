@@ -24,6 +24,7 @@
 
 ##Thanks to:
   * Joshua Frye for writing the original railsready
+  * [Alex Kahn](https://github.com/akahn) for his cool tips
 
 ##Released Under the [MIT License](http://www.opensource.org/licenses/mit-license.php)
 
