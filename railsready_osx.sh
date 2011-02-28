@@ -76,7 +76,11 @@ echo "parse_git_branch(){ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(
 echo "export PS1='\w $(parse_git_branch)\$ '" >> $HOME/.bash_profile
 
 # gitconfig
-echo "$msg_prefix Adding git coloring..."
-curl https://github.com/GordonDiggs/railsready_osx/raw/master/gitconfig >> ~/.gitconfig
+echo "$msg_prefix Adding git coloring and config..."
+curl https://github.com/GordonDiggs/railsready_osx/raw/master/gitconfig >> $HOME/.gitconfig
+# if TextMate is installed, use it as the git editor
+if which mate &> /dev/null;
+  then echo -e "[core]\n  editor = mate -w" >> $HOME/.gitconfig
+fi
 
 echo "$msg_prefix Done! Enjoy!"
