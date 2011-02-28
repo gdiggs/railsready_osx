@@ -46,6 +46,7 @@ echo "source ~/.git-completion.bash" >> $HOME/.bash_profile
 
 # Configure postgres
 echo "$msg_prefix Configuring Postgresql..."
+echo 'PATH="$PATH:/usr/local/pgsql/bin"' >> $HOME/.bash_profile
 initdb /usr/local/var/postgres
 postgres_version=`psql --version | grep -o [0-9].[0-9].[0-9]`
 cp /usr/local/Cellar/postgresql/$postgres_version/org.postgresql.postgres.plist ~/Library/LaunchAgents
@@ -68,5 +69,10 @@ source $HOME/.bash_profile
 # Install some gems
 echo "$msg_prefix Installing gems..."
 gem install rails bundler passenger
+
+# Add some bash_profile and gitconfig stuff
+echo "$msg_previx Setting up bash_profile and git config..."
+echo "parse_git_branch(){ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'; }" >> $HOME/.bash_profile
+echo "export PS1='\w $(parse_git_branch)\$ '" >> $HOME/.bash_profile
 
 echo "$msg_prefix Done! Enjoy!"
