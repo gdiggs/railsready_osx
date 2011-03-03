@@ -15,9 +15,6 @@ gtfo_now() {
 # capture exit signal
 trap gtfo_now SIGINT
 
-echo "$msg_prefix Creating install dir..."
-cd && mkdir -p $HOME/railsready && cd $HOME/railsready
-
 # Install homebrew
 echo "$msg_prefix Installing Homebrew..."
 ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
@@ -73,7 +70,7 @@ gem install rails bundler passenger
 # Add some bash_profile
 echo "$msg_prefix Setting up bash_profile..."
 echo "parse_git_branch(){ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'; }" >> $HOME/.bash_profile
-echo "export PS1='\w $(parse_git_branch)\$ '" >> $HOME/.bash_profile
+echo -e "export PS1='\w \$(parse_git_branch)\\\$ '" >> $HOME/.bash_profile
 
 # gitconfig
 echo "$msg_prefix Adding git coloring and config..."
