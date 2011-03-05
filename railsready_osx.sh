@@ -56,12 +56,12 @@ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This lo
 source $HOME/.rvm/scripts/rvm
 
 # Install Ruby
-ruby_vs = ("1.8.7", "1.8.2")
+ruby_vs=("1.8.7", "1.9.2")
 for version in "${ruby_vs[@]}"
 do
   echo "$msg_prefix Installing Ruby $version..."
   rvm install $version
-end
+done
 rvm --default use 1.9.2
 
 # Reload the terminal so we can use gem
