@@ -6,7 +6,7 @@
 ##XCode must be installed before you run this script!
 
 ##To Run:
-  * `bash < <( curl https://github.com/GordonDiggs/railsready_osx/raw/master/railsready_osx.sh)`
+  * `bash < <( curl https://raw.github.com/GordonDiggs/railsready_osx/master/railsready_osx.sh)`
 
 ##What this installs:
   * homebrew
