@@ -38,7 +38,7 @@ source $HOME/.bash_profile
 
 # Install git bash completion
 echo "$msg_prefix Installing Git Bash Completion..."
-curl https://github.com/git/git/raw/master/contrib/completion/git-completion.bash >> ~/.git-completion.bash
+curl -L https://github.com/git/git/raw/master/contrib/completion/git-completion.bash >> ~/.git-completion.bash
 echo "source ~/.git-completion.bash" >> $HOME/.bash_profile
 
 # Configure postgres
